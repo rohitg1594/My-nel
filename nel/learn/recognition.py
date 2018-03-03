@@ -8,8 +8,8 @@ from ..doc import Doc
 from ..model.recognition import SequenceClassifier
 from ..features import recognition
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class TrainSequenceClassifier(object):
     """ Train a CRF sequence model for mention recognition over a corpus of documents. """

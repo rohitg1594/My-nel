@@ -11,9 +11,9 @@ from ..process.tag import Tagger, StanfordTagger
 from ..process.tokenise import RegexTokeniser, TOKEN_RE
 from ..harness.format import markup_to_whitespace
 
-from nel import logging
+from nel import loggingmy
 
-log = logging.getLogger()
+log = loggingmy.getLogger()
 ENC = 'utf8'
 
 @PrepareCorpus.Register

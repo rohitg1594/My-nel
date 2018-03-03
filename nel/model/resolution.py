@@ -6,8 +6,8 @@ from datetime import datetime
 from .data import ObjectStore
 from ..features.mapping import FEATURE_MAPPERS
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class Classifier(object):
     mid = 'models:classifiers'

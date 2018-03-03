@@ -12,8 +12,8 @@ from ..harness import format
 from ..process import cluster, resolve
 from ..process.pipeline import Pipeline
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class ServiceHarness(object):
     """ Harness hosting a REST linking endpoint. """

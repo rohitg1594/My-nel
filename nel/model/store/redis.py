@@ -6,8 +6,8 @@ from itertools import islice, izip
 
 from ..data import Store, ObjectStore, FieldStore, SetStore
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class RedisStore(Store):
     """ Abstract base class for stores built on redis """

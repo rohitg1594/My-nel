@@ -14,8 +14,8 @@ from .process.candidates import CandidateGenerator
 from .process.coref import MentionClusterer
 from .features.feature import Feature
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 APPS = [
     prepare.PrepareCorpus,

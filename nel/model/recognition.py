@@ -8,8 +8,8 @@ from datetime import datetime
 from itertools import izip
 from .data import ObjectStore
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class NamePartCounts(object):
     """ Entity count model """

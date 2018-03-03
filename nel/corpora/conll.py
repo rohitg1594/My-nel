@@ -7,8 +7,8 @@ from ..model.corpora import Redirects
 from ..process import tag
 from ..process.tokenise import RegexTokeniser
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 DOCSTART_MARKER = '-DOCSTART-'
 

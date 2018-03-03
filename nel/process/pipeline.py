@@ -2,8 +2,8 @@ import json
 from . import tag, candidates, coref, resolve
 from ..features import feature
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class Pipeline(object):
     """ Pipeline of document processes """

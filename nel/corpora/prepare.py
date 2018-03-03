@@ -5,8 +5,8 @@ from pymongo import MongoClient
 
 from ..doc import Doc
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class PrepareCorpus(object):
     """ Prepare and inject a corpus. """

@@ -8,8 +8,8 @@ from ..model.corpora import Redirects
 from ..process.tokenise import RegexTokeniser, TOKEN_RE
 from ..harness.format import markdown_to_whitespace
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 ENC = 'utf8'
 def normalise_wikipedia_link(s):

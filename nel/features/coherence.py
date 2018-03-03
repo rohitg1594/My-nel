@@ -7,8 +7,8 @@ from ..model.disambiguation import EntityEmbeddings
 from scipy.spatial.distance import cosine
 from scipy.stats import gmean
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 @Feature.Extractable
 class EmbeddingCoherence(Feature):

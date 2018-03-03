@@ -6,8 +6,8 @@ from ..doc import Doc
 from ..features import mapping
 from ..model.resolution import Classifier
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class TrainMentionClassifier(object):
     """ Abstract class for training an SVM classifier over mentions in a corpus of documents. """

@@ -2,8 +2,8 @@
 from .process import Process
 from ..util import spanset_insert
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class Resolver(Process):
     """ Assigns resolutions to chains in a document """

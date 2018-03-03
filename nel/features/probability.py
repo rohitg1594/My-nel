@@ -5,8 +5,8 @@ from .feature import Feature
 from ..model import disambiguation
 from ..process.candidates import CandidateGenerator
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class LogFeature(Feature):    
     def compute(self, doc, chain, candidate, state):

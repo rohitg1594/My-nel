@@ -3,8 +3,8 @@ import random
 from sklearn.svm import LinearSVC
 from .train import TrainMentionClassifier
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 def sample_by_magnitude(_, negatives, limit):
     # learn from candidates with highest feature vector magnitude

@@ -4,8 +4,8 @@ from itertools import chain
 from ..doc import Chain
 from .process import Process
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class MentionClusterer(Process):
     """ Perform in-document coreference clustering over mentions """

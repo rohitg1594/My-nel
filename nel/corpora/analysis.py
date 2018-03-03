@@ -8,8 +8,8 @@ from pymongo import MongoClient
 
 from ..doc import Doc
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class CorpusStats(object):
     """ Output summary statistics for documents in a corpus """

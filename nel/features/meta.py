@@ -5,8 +5,8 @@ from .feature import Feature
 from .mapping import FEATURE_MAPPERS
 from ..model.resolution import Classifier
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class ClassifierFeature(Feature):
     """ Computes a feature score based on the output of a classifier over a set of features. """

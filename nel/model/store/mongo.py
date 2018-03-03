@@ -2,8 +2,8 @@ from pymongo import MongoClient
 
 from ..data import Store, ObjectStore, FieldStore, SetStore
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class MongoStore(Store):
     def __init__(self, db, collection, uri='mongodb://localhost'):

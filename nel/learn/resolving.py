@@ -7,8 +7,8 @@ from ..model.resolution import Classifier
 from ..features import mapping
 from .train import TrainMentionClassifier
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class FitNilThreshold(object):
     """ Fits a threshold that optimises nil accuracy """

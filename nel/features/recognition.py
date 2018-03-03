@@ -2,12 +2,12 @@ import re
 import string
 import math
 from itertools import chain
-from spacy.en import English
+from spacy.lang.en import English
 
 from ..model.recognition import NamePartCounts
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class SequenceFeatureExtractor(object):
     def __init__(self, **kwargs):

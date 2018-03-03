@@ -9,8 +9,8 @@ from collections import defaultdict
 from bisect import bisect_left, bisect_right
 from contextlib import contextmanager
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 def get_from_module(cid, mod_params, mod_name, instantiate=False, kwargs=None):
     if isinstance(cid, six.string_types):

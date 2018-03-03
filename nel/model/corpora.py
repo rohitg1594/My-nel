@@ -1,7 +1,7 @@
 from .data import ObjectStore
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class Redirects(object):
     def __init__(self, tag, prefetch = False):

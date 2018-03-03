@@ -5,8 +5,8 @@ import operator
 from functools32 import lru_cache
 
 from ..data import Store, ObjectStore
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class FileObjectStore(ObjectStore):
     def __init__(self, path):

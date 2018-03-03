@@ -7,8 +7,8 @@ from ..model import recognition
 from ..doc import Mention, Chain, Candidate
 from ..model.disambiguation import NameProbability
 
-from nel import logging
-log = logging.getLogger()
+from nel import loggingmy
+log = loggingmy.getLogger()
 
 class CandidateGenerator(Process):
     """ Populate candidate sets for chains in a document. """
