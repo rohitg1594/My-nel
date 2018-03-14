@@ -63,6 +63,7 @@ class TrainMentionClassifier(object):
         log.info('Computing feature statistics over %i documents...', len(docs))
         means, stds = [], []
         for f in features:
+            print(f)
             raw = [c.features[f] for d in docs for m in d.chains for c in m.candidates]
             means.append(numpy.mean(raw))
             stds.append(numpy.std(raw))

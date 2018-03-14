@@ -35,7 +35,6 @@ class CandidateGenerator(Process):
             for m in chain.mentions:
                 forms.update(self.get_normalised_forms(m.text))
             forms = sorted(forms, key=len, reverse=True)
-
             candidates = set()
             for sf in forms:
                 candidates.update(self.get_candidates(doc, chain, sf, state))
@@ -69,10 +68,6 @@ class CandidateGenerator(Process):
         if colon_idx != -1:
             yield sf[:colon_idx]
 
-        quote_parts = sf.split('"')
-        if len(quote_parts) >= 3:
-            yield ''.join(quote_parts)
-            yield ''.join(quote_parts[:1]+quote_parts[-1:])
 
     @classmethod
     def get_normalised_forms(cls, sf):
@@ -97,6 +92,7 @@ class NameCounts(CandidateGenerator):
         state = {}
         for sf, eps in self.nm.get_counts_for_names(forms).iteritems():
             state[sf] = [e for e, c in sorted(eps.iteritems(), key=lambda (k,v):v, reverse=True)][:self.limit]
+        print(state)
         return state
 
     def get_candidates(self, doc, chain, name, state):

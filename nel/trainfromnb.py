@@ -32,22 +32,19 @@ wikipedia_base_path = '/home/rohit/wikipedia/dumps/3046511'
 # this 'calls' an instance of WikipediaCorpus, then builds the corpus,
 # a dictionary with keys id, pid, namespace, content and redirect.
 wikipedia_corpus = wikipedia.WikipediaCorpus()(sc, wikipedia_base_path)
-
 docs = wikipedia.WikipediaArticles()(wikipedia_corpus).cache()
-# print(type(docs))
-# pp = pprint.PrettyPrinter(indent=4)
-# pp.pprint(docs.take(1))
 
 wikipedia_pfx = 'en.wikipedia.org/wiki/'
 
 ec_model = links.EntityCounts(min_count=5, filter_target=wikipedia_pfx).build(docs)\
             .map(links.EntityCounts.format_item)
+
 enc_model = links.EntityNameCounts(lowercase=True, filter_target=wikipedia_pfx)\
             .build(docs).filter(lambda (name, counts): sum(counts.itervalues()) > 1)\
             .map(links.EntityNameCounts.format_item)
-print(ec_model.take(1000))
 
-os.environ['NEL_DATASTORE_URI'] = 'file:///data0/nel/'
+
+os.environ['NEL_DATASTORE_URI'] = 'file:///home/rohit/data0/nel/'
 # we can use model.toLocalIterator if models don't fit in memory
 data.ObjectStore.Get('models:ecounts[wikipedia]').save_many(ec_model.toLocalIterator())
 data.ObjectStore.Get('models:necounts[wikipedia]').save_many(enc_model.toLocalIterator())
@@ -63,7 +60,7 @@ classifier_feature = meta.ClassifierScore(ranker)
 linking = [classifier_feature, resolve.FeatureRankResolver(classifier_feature.id)]
 linking_pipeline = Pipeline(candidate_generation + feature_extraction + linking)
 sample = [from_sift(doc) for doc in docs.takeSample(False, 10)]
-
+#print(sample)
 # clear existing links
 for doc in sample:
     for chain in doc.chains:
@@ -72,12 +69,12 @@ for doc in sample:
             mention.resolution = None
 
 linked_sample = [linking_pipeline(doc) for doc in sample]
-[d.id for d in linked_sample]
-sample[0].chains[0].resolution.id
+print([d.id for d in linked_sample])
+print(sample[0].chains[0].resolution.id)
 
-display(Markdown(inject_markdown_links(linked_sample[0].text, linked_sample[0])))
+# int(display(Markdown(inject_markdown_links(linked_sample[0].text, linked_sample[0]))))
 
 mention_detection = [tag.SpacyTagger(), coref.SpanOverlap()]
 full_pipeline = Pipeline(mention_detection + candidate_generation + feature_extraction + linking)
 linked_sample = [full_pipeline(doc) for doc in sample]
-display(Markdown(inject_markdown_links(linked_sample[0].text, linked_sample[0], 'https://')))
+# int(display(Markdown(inject_markdown_links(linked_sample[0].text, linked_sample[0], 'https://'))))

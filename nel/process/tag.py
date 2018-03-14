@@ -44,7 +44,7 @@ class Tagger(Process):
 
 class SpacyTagger(Tagger):
     def __init__(self, spacy_model = None):
-        self.spacy_model = spacy_model or 'en_default'
+        self.spacy_model = spacy_model or 'en'
         log.debug('Using spacy entity tagger (%s)...', spacy_model)
         self.nlp = spacy.load(self.spacy_model)
 
