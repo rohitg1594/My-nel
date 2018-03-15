@@ -39,17 +39,15 @@ class StoreBase(object):
         # lookup is cached to avoid reflection
         if not hasattr(cls, '_impl_by_proto'):
             cls._impl_by_proto = {c.get_protocol():c for c in cls.__subclasses__()}
-            print(cls._impl_by_proto)
 
         store_cls = cls._impl_by_proto.get(proto, None)
-        print(store_cls)
+
 
         if store_cls == None:
             log.error('Unsupported data store proto (%s), choose from (%s)', proto, ','.join(cls._impl_by_proto.iterkeys()))
             raise NotImplementedError
 
         fmt_cls_name = re.sub('([A-Z])', r' \1', store_cls.__name__).strip().lower()
-        print(fmt_cls_name)
         log.debug("Using %s for (%s)...", fmt_cls_name, store_id)
 
         return store_cls.Get(store_id, uri, **kwargs)

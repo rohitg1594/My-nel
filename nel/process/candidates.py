@@ -92,7 +92,6 @@ class NameCounts(CandidateGenerator):
         state = {}
         for sf, eps in self.nm.get_counts_for_names(forms).iteritems():
             state[sf] = [e for e, c in sorted(eps.iteritems(), key=lambda (k,v):v, reverse=True)][:self.limit]
-        print(state)
         return state
 
     def get_candidates(self, doc, chain, name, state):
